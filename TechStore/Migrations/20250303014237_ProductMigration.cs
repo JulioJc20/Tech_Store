@@ -1,37 +1,36 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace TechStore.Migrations
 {
-
-    public partial class Initial : Migration
+    
+    public partial class ProductMigration : Migration
     {
- 
+       
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Cliente",
+                name: "Produto",
                 columns: table => new
                 {
-                    ClienteID = table.Column<int>(type: "int", nullable: false)
+                    ProdutoId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Telefone = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DataCadastro = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Preco = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Estoque = table.Column<int>(type: "int", nullable: false),
+                    Categoria = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cliente", x => x.ClienteID);
+                    table.PrimaryKey("PK_Produto", x => x.ProdutoId);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Cliente");
+                name: "Produto");
         }
     }
 }

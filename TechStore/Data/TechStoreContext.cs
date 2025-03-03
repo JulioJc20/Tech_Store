@@ -14,7 +14,7 @@ namespace TechStore.Data
         {
         }
 
-        public DbSet<TechStore.Models.Cliente> Cliente { get; set; } = default!;
-        public DbSet<TechStore.Models.Produto> Produto { get; set; } = default!;
+        public DbSet<Cliente> Cliente { get; set; } = default!;
+        public DbSet<Produto> Produto { get; set; } = default!;
     }
 }
